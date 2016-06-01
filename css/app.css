@@ -1,5 +1,5 @@
 #img{
-	background-image: url(../images/background.jpg);
+	background-image: url(../images/background_2.jpg);
 	background-size: cover;
 	background-position: center;
 	height: 100vh;
@@ -10,6 +10,6 @@
 	background-color: transparent;
 	border-color: transparent;
 }
-.center,h3{
+h3{
 	color: floralwhite;
 }

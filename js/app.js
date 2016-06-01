@@ -8,15 +8,15 @@ angularApp.config(function ($routeProvider,$httpProvider){
 		controller: 'HomeController',
 		controllerAs : 'hc'
 	})
-	.otherwise({
-		redirectTo: '/'
-	});
 })
   // .when('/',{
   // 	templateUrl : 'templates/Leagues.html',
   // 	controller : 'LeaguesController',
   // 	controllerAs : 'lc',
   // })
+	// .otherwise({
+	// 	redirectTo: '/'
+	// });
   // .when('/',{
   // 	templateUrl : 'templates/Matches.html',
   // 	controller : 'MatchesController',
@@ -30,12 +30,14 @@ angularApp.config(function ($routeProvider,$httpProvider){
 
 
 
-angularApp.controller("HomeController",['$resource','$http',function($resource,$routeParams,$http){
+angularApp.controller("HomeController",['$resource',function($resource){
   var vm=this;
   var footballResource = $resource('http://api.football-data.org/v1/soccerseasons');
   vm.football_leauges = footballResource.query();
   console.log(vm.football_leauges);
 }]);
+
+
 
 //    var HomeDetails = $resource('http://api.football-data.org/v1/soccerseasons', {}, {
 //     get: {
