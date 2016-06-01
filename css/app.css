@@ -1,0 +1,15 @@
+#img{
+	background-image: url(../images/background.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	background-attachment: fixed;
+}
+
+.navbar-inverse {
+	background-color: transparent;
+	border-color: transparent;
+}
+.center,h3{
+	color: floralwhite;
+}
