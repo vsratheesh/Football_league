@@ -1,7 +1,4 @@
 <div class="container-fluid">
-<!-- <nav class="navbar navbar-inverse">
-<img alt="Brand" src="../images/logo_2.png">	
-</nav> -->
 <div class="container-fluid header text-center">
   <h3>Football Leagues</h3>
 </div>
@@ -15,7 +12,7 @@
       </thead>
       <tbody>
       <tr ng-repeat = "n in hc.football_leauges">
-        <th><center><a href="#" ng-click="" >{{n.caption}} <br> Number Of Teams : {{n.numberOfTeams}} <br> Number Of Games : {{n.numberOfGames}}</a></center></th>
+        <th><center><a href="#/football_response/{{n.id}}" >{{n.caption}} <br> Number Of Teams : {{n.numberOfTeams}} <br> Number Of Games : {{n.numberOfGames}}</a></center></th>
       </tr>
       </tbody>
     </table>
@@ -23,15 +20,3 @@
 </div>
 </div>
 
-
-
-<!-- 
- "id": 394,
-    "caption": "1. Bundesliga 2015/16",
-    "league": "BL1",
-    "year": "2015",
-    "currentMatchday": 34,
-    "numberOfMatchdays": 34,
-    "numberOfTeams": 18,
-    "numberOfGames": 306,
-    "lastUpdated": "2016-05-14T18:57:27Z" -->

@@ -1,15 +1,18 @@
 #img{
-	background-image: url(../images/background_2.jpg);
+	background-image: url(../images/background.jpg);
 	background-size: cover;
 	background-position: center;
 	height: 100vh;
 	background-attachment: fixed;
 }
+body{
+	padding-top: 70px;
+	opacity: 0.6;
+	filter: alpha(opacity=40);
+	font-family: 'Oswald', sans-serif;
+	font-size: 25px;
+}
+.leaguePage img{
+	float: right;
+}
 
-.navbar-inverse {
-	background-color: transparent;
-	border-color: transparent;
-}
-h3{
-	color: floralwhite;
-}
