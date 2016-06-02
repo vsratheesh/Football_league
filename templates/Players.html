@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th>Jersey No.</th>
+          <th>Position</th>
+          <th>Name</th>
+          <th>Nationality</th>
+          <th>Market Value</th>
+          <th>D.O.B</th>
+          <th>Contract</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="n in pc.getPlayers.players">
+          <td>{{n.jerseyNumber}}</td>
+          <td>{{n.position}}</td>
+          <td>{{n.name}}</td>
+          <td>{{n.nationality}}</td>
+          <td>{{n.marketValue}}</td>
+          <td>{{n.dateOfBirth}}</td>
+          <td>{{n.contractUntil}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>

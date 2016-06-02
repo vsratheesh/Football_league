@@ -14,20 +14,20 @@ angularApp.config(function ($routeProvider,$httpProvider){
 		controller : 'TeamController',
 		controllerAs : 'tc'
 	})
-  .when('/team_fixtures',{
-  	templateUrl : 'templates/Fixtures.html',
-  	controller : 'FixturesController',
-  	controllerAs : 'fc'
-  })
-  .otherwise({
-  	redirectTo: '/'
-  });
+	.when('/team_fixtures',{
+		templateUrl : 'templates/Fixtures.html',
+		controller : 'FixturesController',
+		controllerAs : 'fc'
+	})
+	// .when('/team_players',{
+	// 	templateUrl : 'templates/Players.html',
+	// 	controller : 'PlayersController',
+	// 	controllerAs : 'pc',
+	// })
+	.otherwise({
+		redirectTo: '/'
+	});
 })
-  // .when('/',{
-  // 	templateUrl : 'templates/Matches.html',
-  // 	controller : 'MatchesController',
-  // 	controllerAs : 'mc',
-  // })
 
 angularApp.service("myService",function(){
 	var vm = this;
@@ -50,7 +50,6 @@ angularApp.controller("TeamController",['$resource','$filter','$routeParams','my
 
 	vm.fixtures = function(api){
 		myService.api = api;
-		console.log("jndfdn");
 	}
 
 }]);
@@ -61,3 +60,10 @@ angularApp.controller("FixturesController",['$resource','$filter','$routeParams'
 	vm.getFixtures = $resource(vm.fixturesApi).get();
 	console.log(vm.getFixtures);
 }]);
+
+// angularApp.controller("PlayersController",['$resource','$filter','$routeParams','myService',function($resource,$filter,$routeParams,myService){
+// 	var vm=this;
+// 	vm.playersApi = myService.api;
+// 	vm.getPlayers = $resource(vm.playersApi).get();
+// 	console.log(vm.getPlayers);
+// }]);
