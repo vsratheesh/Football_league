@@ -14,10 +14,10 @@ angularApp.config(function ($routeProvider,$httpProvider){
 		controller : 'TeamController',
 		controllerAs : 'tc'
 	})
-  .when('/football_response/:uniqId/fixtures',{
+  .when('/team_fixtures',{
   	templateUrl : 'templates/Fixtures.html',
-  	controller : 'TeamController',
-  	controllerAs : 'tc',
+  	controller : 'FixturesController',
+  	controllerAs : 'fc'
   })
   .otherwise({
   	redirectTo: '/'
@@ -29,7 +29,10 @@ angularApp.config(function ($routeProvider,$httpProvider){
   // 	controllerAs : 'mc',
   // })
 
-
+angularApp.service("myService",function(){
+	var vm = this;
+	vm.api = '';
+});
 
 angularApp.controller("HomeController",['$resource',function($resource){
 	var vm=this;
@@ -38,21 +41,23 @@ angularApp.controller("HomeController",['$resource',function($resource){
 	console.log(vm.football_leauges);
 }]);
 
-angularApp.controller("TeamController",['$resource','$filter','$routeParams',function($resource,$filter,$routeParams){
+angularApp.controller("TeamController",['$resource','$filter','$routeParams','myService',function($resource,$filter,$routeParams,myService){
 	var vm=this;
 	var id = $routeParams.uniqId;
 	var football_response = $resource('http://api.football-data.org/v1/soccerseasons/'+ id +'/teams');
 	vm.football_teams = football_response.get();
 	console.log(vm.football_teams);
 
-	vm.fixtures = function(data){
-		var football_fixture = $resource(data.href);
-		vm.football_fixtures = football_fixture.get();
+	vm.fixtures = function(api){
+		myService.api = api;
+		console.log("jndfdn");
 	}
 
 }]);
 
-// angularApp.controller("LeaguesController",['$resource','$filter','$routeParams',function($resource,$filter,$routeParams){
-// 	var vm=this;
-// 	var id = $routeParams.uniqId;
-// }]);
+angularApp.controller("FixturesController",['$resource','$filter','$routeParams','myService',function($resource,$filter,$routeParams,myService){
+	var vm=this;
+	vm.fixturesApi = myService.api;
+	vm.getFixtures = $resource(vm.fixturesApi).get();
+	console.log(vm.getFixtures);
+}]);

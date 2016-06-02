@@ -1,22 +1,21 @@
-<div class="container-fluid">
-<div class="container-fluid header text-center">
-  <h3>Football Leagues</h3>
-</div>
-<div class ="row">
-  <div class="col-md-6 col-md-offset-3" id="result">
-    <table class="table table-hover ">
-      <thead>
-        <tr>
-          <th><center>Leagues</center></th>
-        </tr>
-      </thead>
-      <tbody>
-      <tr ng-repeat = "n in hc.football_leauges">
-        <th><center><a href="#/football_response/{{n.id}}" >{{n.caption}} <br> Number Of Teams : {{n.numberOfTeams}} <br> Number Of Games : {{n.numberOfGames}}</a></center></th>
-      </tr>
-      </tbody>
-    </table>
+<h1 class="text-center" style="color:white"><em>FOOTBALL LEAGUES</em></h1>
+<div class="panel panel-default panel-transparent col-md-9 col-md-offset-2">
+  <div class="panel-title">
+    <div class="row" style="color:white">
+      <strong>
+      <div class="col-md-4"><em>LEAGUE NAME</em></div>
+        <div class="col-md-4"><em>NUMBER OF TEAMS</em></div>
+        <div class="col-md-4"><em>NUMBER OF GAMES</em></div>
+      </strong>
+    </div>
+  </div>
+  <div class="panel-body" ng-repeat="n in hc.football_leauges">
+    <div class="row">
+      <div class="col-md-4"><em>{{n.caption}}</em></div>
+      <a ng-href="#/football_response/{{n.id}}">
+        <div class="col-md-4"><em>{{n.numberOfTeams}}</em></div>
+      </a>
+      <div class="col-md-4"><em>{{n.numberOfGames}}</em></div>
+    </div>
   </div>
 </div>
-</div>
-
