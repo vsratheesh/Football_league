@@ -15,4 +15,11 @@ body{
 .leaguePage img{
 	float: right;
 }
-
+li{
+	display:inline-block;
+	color:white;
+	margin-right:10px;
+	text-align: center;
+	line-height:1.5em;
+	height:auto;
+}

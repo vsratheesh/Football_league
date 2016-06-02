@@ -14,15 +14,15 @@ angularApp.config(function ($routeProvider,$httpProvider){
 		controller : 'TeamController',
 		controllerAs : 'tc'
 	})
+  .when('/football_response/:uniqId/fixtures',{
+  	templateUrl : 'templates/Fixtures.html',
+  	controller : 'TeamController',
+  	controllerAs : 'tc',
+  })
   .otherwise({
   	redirectTo: '/'
   });
 })
-  // .when('/',{
-  // 	templateUrl : 'templates/Leagues.html',
-  // 	controller : 'LeaguesController',
-  // 	controllerAs : 'lc',
-  // })
   // .when('/',{
   // 	templateUrl : 'templates/Matches.html',
   // 	controller : 'MatchesController',
@@ -45,4 +45,14 @@ angularApp.controller("TeamController",['$resource','$filter','$routeParams',fun
 	vm.football_teams = football_response.get();
 	console.log(vm.football_teams);
 
+	vm.fixtures = function(data){
+		var football_fixture = $resource(data.href);
+		vm.football_fixtures = football_fixture.get();
+	}
+
 }]);
+
+// angularApp.controller("LeaguesController",['$resource','$filter','$routeParams',function($resource,$filter,$routeParams){
+// 	var vm=this;
+// 	var id = $routeParams.uniqId;
+// }]);

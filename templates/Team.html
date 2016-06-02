@@ -3,6 +3,6 @@
     <img ng-src="{{n.crestUrl}}" class="img-responsive" width="120" height="100">
     {{n.name}} ({{n.code}})<br>
     MarketValue:{{n.squadMarketValue}}<br><br>
-    <a class="btn btn-primary btn-lg myBtn" href="#" role="button">Fixtures</a>
+    <a class="btn btn-primary btn-lg myBtn" ng-click="tc.fixtures(n._links.fixtures)" role="button">Fixtures</a>
   </div>
 </div>

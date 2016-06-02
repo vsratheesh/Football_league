@@ -1,0 +1,16 @@
+ <div class="col-md-4">
+     <div class="panel panel-default panel-transparent text-center">
+       <div class="panel-heading">
+         <h3 class="panel-title">Team Fixtures</h3>
+       </div>
+       <div class="panel-body" ng-repeat="n.">
+         <div class="row">
+           <div class="col-md-2">{{n.date | date:'shortDate'}}</div>
+           <div class="col-md-4">{{n.homeTeamName}}</div>
+           <div class="col-md-2">{{n.result.goalsHomeTeam}} &mdash; {{x.result.goalsAwayTeam}}</div>
+           <div class="col-md-4">{{n.awayTeamName}}</div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
