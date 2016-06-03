@@ -5,17 +5,18 @@
       <strong>
       <div class="col-md-4"><em>LEAGUE NAME</em></div>
         <div class="col-md-4"><em>NUMBER OF TEAMS</em></div>
-        <div class="col-md-4"><em>NUMBER OF GAMES</em></div>
+        <div class="col-md-4"></div>
       </strong>
     </div>
   </div>
   <div class="panel-body" ng-repeat="n in hc.football_leauges">
     <div class="row">
       <div class="col-md-4"><em>{{n.caption}}</em></div>
-      <a ng-href="#/football_response/{{n.id}}">
         <div class="col-md-4"><em>{{n.numberOfTeams}}</em></div>
+      <div class="col-md-4">
+      <a ng-href="#/football_response/{{n.id}}">
+       <button type="button" class="btn btn-default">Show Teams</button>
       </a>
-      <div class="col-md-4"><em>{{n.numberOfGames}}</em></div>
     </div>
   </div>
 </div>

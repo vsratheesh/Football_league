@@ -19,11 +19,11 @@ angularApp.config(function ($routeProvider,$httpProvider){
 		controller : 'FixturesController',
 		controllerAs : 'fc'
 	})
-	// .when('/team_players',{
-	// 	templateUrl : 'templates/Players.html',
-	// 	controller : 'PlayersController',
-	// 	controllerAs : 'pc',
-	// })
+	.when('/team_players',{
+		templateUrl : 'templates/Players.html',
+		controller : 'PlayersController',
+		controllerAs : 'pc',
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
@@ -38,7 +38,7 @@ angularApp.controller("HomeController",['$resource',function($resource){
 	var vm=this;
 	var footballResource = $resource('http://api.football-data.org/v1/soccerseasons');
 	vm.football_leauges = footballResource.query();
-	console.log(vm.football_leauges);
+	// console.log(vm.football_leauges);
 }]);
 
 angularApp.controller("TeamController",['$resource','$filter','$routeParams','myService',function($resource,$filter,$routeParams,myService){
@@ -46,10 +46,14 @@ angularApp.controller("TeamController",['$resource','$filter','$routeParams','my
 	var id = $routeParams.uniqId;
 	var football_response = $resource('http://api.football-data.org/v1/soccerseasons/'+ id +'/teams');
 	vm.football_teams = football_response.get();
-	console.log(vm.football_teams);
+	// console.log(vm.football_teams);
 
 	vm.fixtures = function(api){
 		myService.api = api;
+	}
+	vm.players = function(api){
+		myService.api = api;
+		console.log(myService.api);
 	}
 
 }]);
@@ -58,12 +62,13 @@ angularApp.controller("FixturesController",['$resource','$filter','$routeParams'
 	var vm=this;
 	vm.fixturesApi = myService.api;
 	vm.getFixtures = $resource(vm.fixturesApi).get();
-	console.log(vm.getFixtures);
+	// console.log(vm.getFixtures);
 }]);
 
-// angularApp.controller("PlayersController",['$resource','$filter','$routeParams','myService',function($resource,$filter,$routeParams,myService){
-// 	var vm=this;
-// 	vm.playersApi = myService.api;
-// 	vm.getPlayers = $resource(vm.playersApi).get();
-// 	console.log(vm.getPlayers);
-// }]);
+angularApp.controller("PlayersController",['$resource','$filter','$routeParams','myService',function($resource,$filter,$routeParams,myService){
+	var vm=this;
+	vm.playersApi = myService.api;
+	console.log(vm.playersApi);
+	vm.getPlayers = $resource(vm.playersApi).get();
+	console.log(vm.getPlayers);
+}]);
